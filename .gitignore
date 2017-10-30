@@ -17,3 +17,19 @@
 /yarn-error.log
 
 .byebug_history
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
+vendor/assets/bower_components
+vendor/bundle/*
+node_modules
+config/settings.local.yml
+
+
+# Ignore application configuration
+/config/application.yml
+
+
+*.swp
+public/assets
