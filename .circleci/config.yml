@@ -38,9 +38,6 @@ jobs:
           name: install dependencies
           command: |
             bundle install --jobs=4 --retry=3 --path vendor/bundle
-            sudo apt-get install -y postgresql-client-9.6
-            ./wait-for-it.sh localhost:5432
-            time psql -q -h localhost -p 5432 -U root -d circle_test -c '\timing' -f test.sql > /dev/null
 
       - save_cache:
           paths:
