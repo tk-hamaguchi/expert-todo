@@ -3,6 +3,7 @@ Expert ToDo
 
 
 [![CircleCI](https://circleci.com/gh/tk-hamaguchi/expert-todo.svg?style=svg)](https://circleci.com/gh/tk-hamaguchi/expert-todo)
+[![codecov](https://codecov.io/gh/tk-hamaguchi/expert-todo/branch/develop/graph/badge.svg)](https://codecov.io/gh/tk-hamaguchi/expert-todo)
 
 
 --------
