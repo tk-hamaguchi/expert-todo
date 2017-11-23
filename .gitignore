@@ -33,3 +33,6 @@ config/settings.local.yml
 
 *.swp
 public/assets
+config/database.yml
+coverage
+

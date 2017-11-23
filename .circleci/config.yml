@@ -44,7 +44,6 @@ jobs:
       - run:
           name: run tests
           command: |
-            env
             mkdir /tmp/test-results
             bundle exec rspec --format progress \
                             --format RspecJunitFormatter \
