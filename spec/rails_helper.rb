@@ -1,7 +1,16 @@
 require 'simplecov'
-require 'simplecov-rcov'
-SimpleCov.start 'rails'
-SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
+if ENV['CIRCLE_ARTIFACTS']
+  require 'codecov'
+  SimpleCov.coverage_dir File.join(ENV['CIRCLE_ARTIFACTS'], "coverage")
+  SimpleCov.start 'rails'
+  SimpleCov.formatter = SimpleCov::Formatter::Codecov
+elsif ENV['JENKINS_URL']
+  require 'simplecov-rcov'
+  SimpleCov.start 'rails'
+  SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
+else
+  SimpleCov.start 'rails'
+end
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'

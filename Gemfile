@@ -47,8 +47,9 @@ group :development, :test do
   gem 'faker'
   gem 'faker-japanese'
   gem 'shoulda-matchers'
-  gem 'simplecov'
-  gem 'simplecov-rcov'
+  gem 'simplecov',      require: false
+  gem 'simplecov-rcov', require: false
+  gem 'codecov',        require: false
 
   gem 'coderay'
 
