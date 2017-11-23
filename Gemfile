@@ -57,6 +57,8 @@ group :development, :test do
   gem 'aruba', require: false
   gem 'poltergeist'
   gem 'letter_opener'
+
+  gem 'rspec_junit_formatter'
 end
 
 group :development do
