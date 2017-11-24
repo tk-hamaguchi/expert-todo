@@ -36,7 +36,7 @@ jobs:
       - run:
           name: install dependencies
           command: |
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
+            bundle install --jobs=4 --retry=3 --deployment
 
       - save_cache:
           paths:
@@ -81,9 +81,11 @@ jobs:
       - image: circleci/ruby:2.4.1-node-browsers
     working_directory: ~/repo
     steps:
+      - checkout
       - run:
           name: Run setup script
           command: bash .circleci/setup-heroku.sh
+                        .circleci/setup-heroku.sh
       - add_ssh_keys:
           fingerprints:
             - "cf:39:7c:b0:2f:fb:fd:73:d1:f7:d4:52:20:30:4f:6a"
