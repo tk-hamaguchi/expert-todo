@@ -101,7 +101,7 @@ workflows:
       - build
       - heroku_deploy:
           requires:
-            - build-job
+            - build
           filters:
             branches:
               only:
