@@ -92,3 +92,5 @@ gem 'simple_form'
 gem 'kaminari'
 gem 'figaro'
 
+gem 'materialize-sass'
+
