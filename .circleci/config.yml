@@ -4,7 +4,7 @@
 #
 version: 2
 jobs:
-  build:
+  build-job:
     docker:
       # specify the version you desire here
        - image: circleci/ruby:2.4.1-node-browsers
@@ -17,7 +17,6 @@ jobs:
        - image: circleci/postgres:9.6-alpine
          environment:
            PGDATA: /dev/shm/pgdata/data
-
 
     environment:
       DATABASE_URL: postgres://root:@127.0.0.1:5432/circle_test
@@ -75,3 +74,35 @@ jobs:
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
+
+
+  deploy-job:
+    docker:
+      - image: circleci/ruby:2.4.1-node-browsers
+    working_directory: ~/repo
+    steps:
+      - run:
+          name: Run setup script
+          command: bash .circleci/setup-heroku.sh
+      - add_ssh_keys:
+          fingerprints:
+            - "cf:39:7c:b0:2f:fb:fd:73:d1:f7:d4:52:20:30:4f:6a"
+      - run:
+          name: Deploy Master to Heroku
+          command: |
+            git push --force git@heroku.com:$HEROKU_APP_NAME.git HEAD:refs/heads/master
+            heroku run python manage.py deploy
+            heroku restart
+
+ workflows:
+   version: 2
+   build-deploy:
+     jobs:
+       - build-job
+       - deploy-job:
+           requires:
+             - build-job
+           filters:
+             branches:
+               only: develop
+
