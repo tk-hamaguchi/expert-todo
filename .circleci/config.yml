@@ -94,11 +94,11 @@ jobs:
 #            heroku run python manage.py deploy
 #            heroku restart
 #
-#workflows:
-#  version: 2
-#  build-deploy:
-#  jobs:
-#    - build_job
+workflows:
+  version: 2
+  build-deploy:
+  jobs:
+    - build_job
 #    - deploy_job:
 #        requires:
 #          - build-job
