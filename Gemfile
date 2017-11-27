@@ -92,5 +92,7 @@ gem 'simple_form'
 gem 'kaminari'
 gem 'figaro'
 
-gem 'materialize-sass'
+gem 'jquery-rails'
+gem 'bootstrap', '~> 4.0.0.beta2.1'
+gem 'font-awesome-rails'
 
