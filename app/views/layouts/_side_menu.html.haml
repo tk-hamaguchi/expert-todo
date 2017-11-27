@@ -1,0 +1,30 @@
+%nav.nav.nav-pills.flex-column#side_menu
+  - nav_link_class = ['nav-link']
+
+-#
+  - my_domain_link_class = nav_link_class.dup
+  - my_domain_link_class += ['active'] if controller.instance_of?(My::DomainsController)
+  = link_to my_domains_path, { class: my_domain_link_class } do
+    = fa_icon 'database fw'
+    = t '.domains_menu'
+
+  - my_user_link_class = nav_link_class.dup
+  - my_user_link_class += ['active'] if controller.instance_of?(My::UsersController)
+  = link_to my_users_path, { class: my_user_link_class } do
+    = fa_icon 'user fw'
+    = t '.users_menu'
+
+  - my_system_log_link_class = nav_link_class.dup
+  - my_system_log_link_class += ['active'] if controller.instance_of?(My::System::LogController)
+  = link_to my_system_log_path, { class: my_system_log_link_class } do
+    = fa_icon 'file-text-o fw'
+    = t '.system_logs_menu'
+
+
+
+
+
+
+
+
+

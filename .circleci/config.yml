@@ -120,5 +120,6 @@ workflows:
               only:
                 - develop
                 - master
+                - add_user_and_tasks
                 - /rc-.*/
 

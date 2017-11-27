@@ -1,0 +1,10 @@
+- content_for :stylesheet_links do
+  = stylesheet_link_tag 'my', media: 'all', 'data-turbolinks-track' => 'reload'
+  = javascript_include_tag 'my', 'data-turbolinks-track' => 'reload'
+
+
+- content_for :grid_system_content do
+  = render partial: '/layouts/alerts'
+  = content_for?(:my_content) ? yield(:my_content) : yield
+
+= render template: 'layouts/grid_system'

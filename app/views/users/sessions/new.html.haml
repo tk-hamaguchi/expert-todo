@@ -1,0 +1,36 @@
+- content_for :stylesheet_links do
+  :scss
+    form#new_user {
+      .container {
+        input {
+          border: none;
+          border-radius: 0px;
+          border-bottom: 1px solid darkgray;
+        }
+        button {
+          margin-top: 1.5em;
+          border-radius: 0px;
+        }
+        padding-top: 1em;
+      }
+    }
+
+
+
+#login_form.col-md-8.offset-md-2
+  .col-md-12
+    %h1
+      = t 'app_name'
+
+
+  = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .container
+
+      = f.input :email, required: false, label: false, placeholder: 'メールアドレス'
+
+      = f.input :password, required: false, label: false, placeholder: 'パスワード'
+
+      = f.button :button, class: 'btn btn-block btn-primary btn-lg' do
+        %i.fa.fa-sign-in{ aria:{ hidden: true }}
+        = t('devise.sessions.new.sign_in')
+
