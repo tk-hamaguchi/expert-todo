@@ -58,13 +58,11 @@ jobs:
       - run: RAILS_ENV=test bundle exec rake db:create
       - run: RAILS_ENV=test bundle exec rake db:schema:load
 
-      - run: mkdir -p /tmp/test-results
-
       # run tests!
       - run:
           name: run tests
           command: |
-            mkdir /tmp/test-results
+            mkdir -p /tmp/test-results
             RAILS_ENV=test bundle exec rspec --format progress \
                             --format RspecJunitFormatter \
                             --out /tmp/test-results/rspec.xml \
@@ -82,12 +80,13 @@ jobs:
           #                  "${TEST_FILES}"
 
       # collect reports
-      - store_test_results:
-          path: /tmp/test-results
 
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
+
+      - store_test_results:
+          path: /tmp/test-results
 
 
   heroku_deploy:
