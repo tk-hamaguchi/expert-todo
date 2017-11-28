@@ -41,8 +41,11 @@ group :development, :test do
 
   gem 'timecop'
 
-  gem 'rspec-rails', '~> 3.6.0'
-  gem 'rails-controller-testing', require: false
+  gem 'rspec-rails', '~> 3.7.0'
+  gem 'chromedriver-helper'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'faker-japanese'
