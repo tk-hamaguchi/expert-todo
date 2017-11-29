@@ -12,4 +12,8 @@ FactoryBot.define do
   sequence :email do |n|
     Faker::Internet.email
   end
+
+  sequence :password do |n|
+    Faker::Internet.password
+  end
 end
