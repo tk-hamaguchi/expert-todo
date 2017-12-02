@@ -12,4 +12,10 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = yield :javascript_links
   %body
+    - unless defined?(header) && header == false
+      = render partial: '/layouts/header'
+
     = content_for?(:application_content) ? yield(:application_content) : yield
+- content_for :stylesheet_links do
+  = stylesheet_link_tag 'grid_system_layout', data: { turbolinks: { track: :reload } }
+

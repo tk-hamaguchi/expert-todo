@@ -1,7 +1,7 @@
 - if notice
   .alert.alert-info#information_area
     = notice
--# if !resource.errors.empty?
+- if respond_to?(:resource) && !resource.errors.empty?
   .alert.alert-danger#warning_area{role:'alert'}
     = devise_error_messages!
 - elsif alert

@@ -1,4 +1,5 @@
 ja:
   app_name: Expert ToDo
   copyright_html: "&copy; %{year} @tk_hamaguchi and Project ExpertToDo"
+  sign_out: ログアウト
 

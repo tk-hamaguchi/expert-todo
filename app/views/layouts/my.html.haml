@@ -7,4 +7,4 @@
   = render partial: '/layouts/alerts'
   = content_for?(:my_content) ? yield(:my_content) : yield
 
-= render template: 'layouts/grid_system'
+= render template: 'layouts/grid_system', locals: { side_menu: false }
