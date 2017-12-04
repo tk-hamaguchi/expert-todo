@@ -6,7 +6,7 @@ if ENV['CIRCLE_ARTIFACTS']
     private
 
     def absolute_image_path
-      File.join(ENV['CIRCLE_ARTIFACTS'], 'failed_screenshots', "#{image_name}.png")
+      Pathname.new File.join(ENV['CIRCLE_ARTIFACTS'], 'failed_screenshots', "#{image_name}.png")
     end
   end
 end
