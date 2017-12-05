@@ -18,7 +18,7 @@ RSpec.feature '確認済ユーザーによるアクセス', type: :system do
 
     context 'ログインページからログインしようとしたとき、' do
       let(:user) { FactoryBot.create(:confirmed_user) }
-      scenario '"ログインしました。"というメッセージとともにマイページが表示される' do
+      scenario '"ログインしました。"というメッセージとともにマイページが表示される', js: true do
         visit root_path
         expect(page.current_path).to eq '/users/sign_in'
 
